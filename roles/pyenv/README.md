@@ -1,38 +1,44 @@
-Role Name
+pyenv
 =========
 
-A brief description of the role goes here.
+This role will setup pyenv on a server, install required python version,
+create virtualenv, and install requirements.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Refer to `defaults/main.yml`
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - name: setup pyenv and install python env
+      hosts: ubuntu
       roles:
-         - { role: username.rolename, x: 42 }
+        - {
+            role: pyenv,
+            shell_rc: "~/.zshrc",
+            python_version: "3.6.5",
+            virutalenv_name: "myenv",
+            requirements_path: "files/requirements.txt"
+          }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Guo Qiao(Joe), a Python Developer working in New Zealand.

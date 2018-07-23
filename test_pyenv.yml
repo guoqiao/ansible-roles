@@ -1,0 +1,16 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: test pyenv role with py2
+  hosts: vagrant
+  roles:
+    - role: pyenv
+      python_version: 2.7.15
+      virtualenv_name: py2
+
+- name: test pyenv role with py3
+  hosts: vagrant
+  roles:
+    - role: pyenv
+      python_version: 3.7
+      virtualenv_name: py3
